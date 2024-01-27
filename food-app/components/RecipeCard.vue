@@ -1,25 +1,5 @@
 <script setup>
-const { meal, isRecipeShown } = defineProps(['meal', 'isRecipeShown'])
-
-const ingredientsAndMeasures = computed(() => {
-    const ingredients = [];
-    const measures = [];
-
-    for (let i = 1; i <= 20; i++) {
-        const ingredientKey = `strIngredient${i}`;
-        const measureKey = `strMeasure${i}`;
-
-        if (meal[ingredientKey] && meal[measureKey]) {
-            ingredients.push(meal[ingredientKey]);
-            measures.push(meal[measureKey]);
-        }
-    }
-
-    return ingredients.map((ingredient, index) => ({
-        ingredient,
-        measure: measures[index],
-    }));
-})
+const { ingredientsAndMeasures, isRecipeShown } = defineProps(['ingredientsAndMeasures', 'isRecipeShown'])
 </script>
 
 <template>

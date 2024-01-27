@@ -5,11 +5,30 @@ const route = useRoute()
 const idMeal = route.params.idMeal
 const otherMenus = ref([])
 const meal = ref({})
-const mealIngredientsAndMeasures = ref({})
 const isInstructionShown = ref(false)
 const isRecipeShown = ref(false)
 
-const getMealDetail = async (idMeal) => {
+const ingredientsAndMeasures = computed(() => {
+    const ingredients = [];
+    const measures = [];
+
+    for (let i = 1; i <= 20; i++) {
+        const ingredientKey = `strIngredient${i}`;
+        const measureKey = `strMeasure${i}`;
+        
+        if (meal.value[ingredientKey] && meal.value[measureKey]) {
+            ingredients.push(meal.value[ingredientKey]);
+            measures.push(meal.value[measureKey]);
+        }
+    }
+
+    return ingredients.map((ingredient, index) => ({
+        ingredient,
+        measure: measures[index],
+    }));
+})
+
+const getMealDetail = async () => {
     axios.get(`http://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`).then(response => {
         meal.value = response.data.meals[0]
         getOtherMenus(meal.value.strCategory)
@@ -31,7 +50,7 @@ const formatYoutubeUrl = (url) => {
 }
 
 onMounted(() => {
-    getMealDetail(idMeal)
+    getMealDetail()
 })
 </script>
 
@@ -52,11 +71,11 @@ onMounted(() => {
                     <InstructionCard :meal="meal" :isInstructionShown="isInstructionShown" />
 
                     <!-- Recipe Card -->
-                    <RecipeCard :meal="meal" :isRecipeShown="isRecipeShown" />
+                    <RecipeCard :ingredientsAndMeasures="ingredientsAndMeasures" :isRecipeShown="isRecipeShown" />
 
                     <!-- Youtube Card -->
                     <div v-if="meal.strYoutube"
-                        class="flex flex-col items-start justify-start bg-white p-2 rounded-lg cursor-pointer mb-4">
+                        class="flex flex-col items-start justify-start bg-white p-2 rounded-lg shadow-md cursor-pointer mb-4">
                         <iframe v-if="meal" width="100%" :src="formatYoutubeUrl(meal.strYoutube)"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
