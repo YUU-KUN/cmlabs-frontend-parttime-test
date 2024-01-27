@@ -2,16 +2,14 @@ This is a Front-end Developer Part-time Practical Tasks of Indra Wahyu
 
 ## Installation
 
-This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
-
 ``` bash
 # clone this repository
+$ git clone https://github.com/YUU-KUN/cmlabs-frontend-parttime-test.git
+# move to project folder
 $ cd cmlabs-frontend-parttime-test/food-app/
 # install dependencies
 $ npm install # Or yarn install
 ```
-
-> Make sure to use a version of vue-cli >= 2.1 (`vue -V`).
 
 ## Usage
 
