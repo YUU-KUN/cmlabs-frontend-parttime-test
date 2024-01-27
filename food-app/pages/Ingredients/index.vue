@@ -10,7 +10,8 @@ const filteredIngredients = computed(() => {
 })
 
 const convertToSlug = (ingredient) => {
-    return ingredient.toLowerCase().replace(/ /g, '_')
+    const converted = ingredient.toLowerCase().replace(/ /g, '_')
+    return converted
 }
 
 const handleSearchUpdate = (newValue) => {

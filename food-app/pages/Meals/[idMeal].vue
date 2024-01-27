@@ -15,7 +15,7 @@ const ingredientsAndMeasures = computed(() => {
     for (let i = 1; i <= 20; i++) {
         const ingredientKey = `strIngredient${i}`;
         const measureKey = `strMeasure${i}`;
-        
+
         if (meal.value[ingredientKey] && meal.value[measureKey]) {
             ingredients.push(meal.value[ingredientKey]);
             measures.push(meal.value[measureKey]);
@@ -29,7 +29,7 @@ const ingredientsAndMeasures = computed(() => {
 })
 
 const getMealDetail = async () => {
-    axios.get(`http://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`).then(response => {
+    axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`).then(response => {
         meal.value = response.data.meals[0]
         getOtherMenus(meal.value.strCategory)
     }).catch(error => {
@@ -38,7 +38,7 @@ const getMealDetail = async () => {
 }
 
 const getOtherMenus = (category) => {
-    axios.get(`http://www.themealdb.com/api/json/v1/1/filter.php?i=${category}`).then(response => {
+    axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${category}`).then(response => {
         otherMenus.value = response.data.meals.slice(0, 5)
     }).catch(error => {
         console.log(error);
