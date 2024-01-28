@@ -42,7 +42,7 @@ onMounted(() => {
                 <p class="text-title1 laptop:text-title2 laptop:mb-0 mb-4">All Ingredients</p>
                 <Search @update-search="handleSearchUpdate" placeholder="What ingredient do you have?"/>
             </div>
-            <div class="grid grid-cols-3 laptop:grid-cols-6 gap-4 w-full">
+            <div class="grid grid-cols-2 tablet:grid-cols-3 laptop:grid-cols-6 gap-4 w-full">
                 <div @click="goToIngredientDetail(ingredient.strIngredient)" v-for="ingredient in filteredIngredients" :key="ingredient"
                     class="flex items-center justify-center text-center rounded-2xl bg-white hover:bg-primary hover:text-white cursor-pointer duration-300 p-4 w-full hover:scale-105 mr-4">
                     <p>{{ ingredient.strIngredient }}</p>

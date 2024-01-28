@@ -42,7 +42,7 @@ onMounted(() => {
         </div>
 
 
-        <div class="grid grid-cols-3 laptop:grid-cols-6 gap-6 gap-y-8 w-full">
+        <div class="grid grid-cols-2 tablet:grid-cols-3 laptop:grid-cols-6 gap-6 gap-y-8 w-full">
             <div @click="goToMealDetail(meal.idMeal)" v-for="meal in filteredMeals" :key="meal"
                 class="text-center cursor-pointer ">
                 <div
