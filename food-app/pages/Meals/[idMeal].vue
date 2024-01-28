@@ -65,6 +65,7 @@ onMounted(() => {
                     <p class="text-body text-primary-grey font-bold uppercase">{{ meal.strArea }}</p>
                     <p class="text-header">{{ meal.strMeal }}</p>
                     <button class="bg-primary rounded px-2 text-white text-caption mb-4">{{ meal.strCategory }}</button>
+                    
                     <hr class="w-full mb-4">
 
                     <!-- Instruction Card -->

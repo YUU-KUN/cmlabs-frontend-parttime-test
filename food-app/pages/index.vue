@@ -24,15 +24,12 @@ onMounted(() => {
         <div class="w-full">
             <div class="flex items-center justify-between w-full mb-4">
                 <p class="text-title2">Ingredients</p>
-                <p @click="navigateTo('/ingredients')" class="flex items-center justify-center cursor-pointer hover:font-medium duration-300">
-                    View All <img src="/assets/icons/arrow-right.png" class="w-3" alt="arrow-right">
+                <p @click="navigateTo('/ingredients')"
+                    class="flex items-center justify-center cursor-pointer hover:font-medium duration-300">
+                    View All
                 </p>
             </div>
-            <div class="grid grid-cols-2 tablet:grid-cols-3 laptop:grid-cols-6 gap-4 w-full">
-                <div @click="navigateTo(`/ingredients/${ingredient.strIngredient}`)" v-for="ingredient in ingredients" :key="ingredient" class="flex items-center justify-center text-center rounded-2xl bg-white hover:bg-primary hover:text-white cursor-pointer duration-300 p-4 w-full hover:scale-105 mr-4">
-                    <p>{{ ingredient.strIngredient }}</p>
-                </div>
-            </div>
+            <ListIngredients :ingredients="ingredients" />
         </div>
     </div>
 </template>
