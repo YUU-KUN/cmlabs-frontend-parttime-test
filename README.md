@@ -22,5 +22,5 @@ $ npm run dev
 
 Go to [http://localhost:3000](http://localhost:3000)
 
-Or go to [https://food-fwoek4077-iwahyu809-gmailcom.vercel.app/](https://food-fwoek4077-iwahyu809-gmailcom.vercel.app/)
+Or go to [https://food-app-chi-rose.vercel.app//](https://food-app-chi-rose.vercel.app/)
 to preview deployed version
